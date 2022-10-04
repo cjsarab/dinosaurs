@@ -23,19 +23,31 @@ Park.prototype.findAllDinosaursOfSpecies = function(species){
         if (dinosaur.species == species) {
             allDinosaursOfSpecies.push(dinosaur)
         }
-    return allDinosaursOfSpecies
     }
+    return allDinosaursOfSpecies
 };
 
 Park.prototype.totalVisitors = function() {
     totalVisitors = 0;
     for (currentDinosaur of this.dinosaurCollection) {
         totalVisitors += this.dinosaurCollection.dinosaur.guestsAttractedPerDay
-    }
-    return this.totalVisitors
+    };
+    return this.totalVisitors;
+};
+
+Park.prototype.totalVisitorsPerYear = function() {
+    totalVisitorsPerYear = 0;
+    for (currentDinosaur of this.dinosaurCollection) {
+        totalVisitorsPerYear += this.dinosaurCollection.dinosaur.guestsAttractedPerDay
+    };
+    totalVisitorsPerYear *=365;
+    return totalVisitorsPerYear;
+};
+
+Park.prototype.totalRevenue = function () {
+    results = this.totalVisitorsPerYear*this.ticketPrice;
+    return results;
 }
-
-
 
 module.exports = Park;
 

@@ -49,7 +49,7 @@ describe('Park', function() {
     assert.deepEqual(actual, dinosaur)
   });
 
-  xit('should be able to find all dinosaurs of a particular species', function(){
+  it('should be able to find all dinosaurs of a particular species', function(){
   park.addDinosaur(dinosaur);
   park.addDinosaur(dinosaur2);
   species = dinosaur.species;
@@ -64,8 +64,16 @@ describe('Park', function() {
     assert.deepEqual(actual, 300)
   });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function (){
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    const actual = park.totalVisitorsPerYear();
+    assert.deepEqual(actual, 109500)
+  });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function (){
+    actual = park.totalRevenue();
+    assert.deepEqual(actual, 8760000000)
+  });
 
 });
